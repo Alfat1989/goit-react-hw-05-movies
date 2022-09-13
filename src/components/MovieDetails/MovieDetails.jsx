@@ -1,10 +1,4 @@
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useParams,
-  useNavigate,
-} from "react-router-dom";
+import { NavLink, Outlet, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { searchMovieById } from "../../API/API";
 
