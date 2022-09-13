@@ -17,13 +17,15 @@ export const trendingMovieFetch = () => {
 
 export const searchMovieApi = (searchQuery) => {
   const searchUrl = "/search/movie";
-  return axios.get(`${BASE_URL}${searchUrl}`, {
-    params: {
-      api_key: KEY,
-      query: searchQuery,
-      page: 1,
-    },
-  });
+  return axios
+    .get(`${BASE_URL}${searchUrl}`, {
+      params: {
+        api_key: KEY,
+        query: searchQuery,
+        page: 1,
+      },
+    })
+    .then((res) => res.data.results);
 };
 
 export const searchMovieById = (movieId) => {
