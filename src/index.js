@@ -8,7 +8,7 @@ import App from "./components/App";
 const Main = () => {
   return (
     <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/goit-react-hw-05-movies/">
         <App />
       </BrowserRouter>
     </React.StrictMode>
