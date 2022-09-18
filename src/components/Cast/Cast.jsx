@@ -12,7 +12,6 @@ const Cast = () => {
 
   useEffect(() => {
     searchCreditsMovie(movieId).then(useCast);
-    console.log(cast);
   }, [movieId]);
 
   return (
