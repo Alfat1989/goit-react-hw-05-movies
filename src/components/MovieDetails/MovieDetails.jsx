@@ -2,11 +2,10 @@ import {
   NavLink,
   Outlet,
   useParams,
-  useNavigate,
   useLocation,
   Link,
 } from "react-router-dom";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { searchMovieById } from "../../API/API";
 
 const MovieDetails = () => {
