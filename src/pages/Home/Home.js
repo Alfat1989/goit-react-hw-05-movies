@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { trendingMovieFetch } from "../../API/API";
 import styles from "./Home.scss";
 
 const Home = () => {
   const [trends, setTrends] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     trendingMovieFetch()
@@ -20,7 +21,9 @@ const Home = () => {
           trends.map(({ original_title, id }) => {
             return (
               <li key={id}>
-                <Link to={`/movies/${id}`}>{original_title}</Link>
+                <Link to={`/movies/${id}`} state={{ from: location, state: 5 }}>
+                  {original_title}
+                </Link>
               </li>
             );
           })}

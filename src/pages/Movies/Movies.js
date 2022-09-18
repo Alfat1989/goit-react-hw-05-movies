@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import { searchMovieApi } from "../../API/API";
 
 const Movies = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
+  console.log(location);
 
   const searchMovies = (e) => {
     e.preventDefault();
@@ -36,7 +38,9 @@ const Movies = () => {
           movies.map(({ id, title }) => {
             return (
               <li key={id}>
-                <Link to={`${id}`}>{title}</Link>
+                <Link to={`${id}`} state={{ from: location }}>
+                  {title}
+                </Link>
               </li>
             );
           })}

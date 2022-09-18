@@ -1,12 +1,18 @@
-import { NavLink, Outlet, useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {
+  NavLink,
+  Outlet,
+  useParams,
+  useNavigate,
+  useLocation,
+  Link,
+} from "react-router-dom";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { searchMovieById } from "../../API/API";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
-  console.log(movieId);
-  console.log("this is NAVIGATE", navigate);
+  const location = useLocation();
+  console.log("Location is: ", location);
 
   const [movie, setMovie] = useState([]);
   const { title, overview, release_date, genres, poster_path } = movie;
@@ -18,16 +24,13 @@ const MovieDetails = () => {
     // .then(console.log(movie))
   }, [movieId]);
 
-  const goBack = () => {
-    return navigate(-1);
-  };
+  const goBack = location.state?.from || "/";
+  // const goBack = location.pathname || "/";
 
   return (
     <>
       <h1>Movie Details {movieId}</h1>
-      <button type="button" onClick={goBack}>
-        Back
-      </button>
+      <Link to={goBack}>Back</Link>
       <br />
       <br />
       {movie && (
@@ -51,10 +54,16 @@ const MovieDetails = () => {
               })}
           </ul>
           <p>{overview}</p>
-          <NavLink to="cast">Cast</NavLink>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to={"cast"} state={{ from: location.state.from }}>
+            Cast
+          </NavLink>
+          <NavLink to={"reviews"} state={{ from: location.state.from }}>
+            Reviews
+          </NavLink>
           <hr />
-          <Outlet />
+          <Suspense fallback={<h1>Load....</h1>}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </>
