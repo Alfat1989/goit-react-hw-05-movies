@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/590.ef6db3f1.chunk.css","mappings":"AAAA,QACE,WAGF,QAIE,eACA,gBAHA,aACA,oBAEA","sources":["components/Layout/Layout.scss"],"sourcesContent":[".active {\n  color: blue;\n}\n\n.link,\na {\n  padding: 10px;\n  text-decoration: none;\n  font-size: 18px;\n  font-weight: 600;\n}\n"],"names":[],"sourceRoot":""}
