@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/home-page.48c474e2.chunk.css","mappings":"AAIA,gBAHE,eAKA,CAFF,GAEE","sources":["pages/Home/Home.scss"],"sourcesContent":[".movie__list {\n  list-style: none;\n}\n\nul {\n  list-style: none;\n  padding: 5px;\n}\n"],"names":[],"sourceRoot":""}
