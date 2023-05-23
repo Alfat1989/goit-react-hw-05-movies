@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-// import Home from "../pages/Home";
+// import Home from "pages/Home";
+// import Home from "pages/Home";
 // import Movies from "../pages/Movies";
 // import NotFoindPages from "../pages/NotFoundPages/NotFoundPages";
 // import Cast from "./Cast";
@@ -9,7 +10,9 @@ import { Route, Routes } from "react-router-dom";
 // import Reviews from "./Reviews";
 
 const Layout = lazy(() => import("./Layout"));
-const Home = lazy(() => import("../pages/Home"));
+const Home = lazy(() =>
+  import("pages/Home" /* webpackChunkName: 'home-page' */)
+);
 const Movies = lazy(() => import("../pages/Movies"));
 const NotFoindPages = lazy(() =>
   import("../pages/NotFoundPages/NotFoundPages")

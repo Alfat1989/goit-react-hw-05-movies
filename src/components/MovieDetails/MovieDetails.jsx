@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { useState, useEffect, Suspense } from "react";
 import { searchMovieById } from "../../API/API";
+import LOADING from "components/LOADING";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -26,10 +27,17 @@ const MovieDetails = () => {
   const goBack = location.state?.from || "/";
   // const goBack = location.pathname || "/";
 
+  // const goBackClick = (movieId) => {
+  //   return movieId;
+  // };
+
   return (
     <>
       <h1>Movie Details {movieId}</h1>
-      <Link to={goBack}>Back</Link>
+      <Link to={goBack}>
+        {/* <Link to={goBack} onClick={goBackClick}> */}
+        Back
+      </Link>
       <br />
       <br />
       {movie && (
@@ -60,7 +68,7 @@ const MovieDetails = () => {
             Reviews
           </NavLink>
           <hr />
-          <Suspense fallback={<h1>Load....</h1>}>
+          <Suspense fallback={<LOADING title={"Loda"} />}>
             <Outlet />
           </Suspense>
         </div>

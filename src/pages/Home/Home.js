@@ -21,7 +21,7 @@ const Home = () => {
           trends.map(({ original_title, id }) => {
             return (
               <li key={id}>
-                <Link to={`/movies/${id}`} state={{ from: location, state: 5 }}>
+                <Link to={`/movies/${id}`} state={{ from: location }}>
                   {original_title}
                 </Link>
               </li>
